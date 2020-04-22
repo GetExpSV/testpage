@@ -1,0 +1,30 @@
+.bannerItem{
+    background-image: url(banner-photo.jpg);
+    background-color: transparent;
+    height: 500px
+}
+
+.item{
+    padding-right: 60%;
+    padding-left: 20px;
+    padding-top: 50px;
+    color: #fff
+}
+
+.textItem{
+    padding-right: 60%;
+    color: #fff;
+    padding-left: 20px;
+}
+
+.signItem{
+    background-color: #ef5b4c;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 35px;
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}

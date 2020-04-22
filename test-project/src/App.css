@@ -1,3 +1,15 @@
+.appItem{
+  max-width: 1024px;
+  margin: 0 auto;
+  display: grid;
+  background-color: #fff;
+}
+
+.item{
+  width: 100%;
+  background-color: #282c34;
+}
+
 .App {
   text-align: center;
 }

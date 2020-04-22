@@ -1,0 +1,28 @@
+.item{
+    text-align: center;
+}
+
+.mainItem{
+    margin-top: 100px;
+}
+
+.infoItem{
+    display: block;
+    height: 500px;
+}
+
+.infoItem img{
+    float: left;
+    width: 350px;
+    margin: 20px;
+}
+
+.infoItem div{
+    margin: 20px;
+}
+
+.signItem{
+    color: #ef5b4c;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}

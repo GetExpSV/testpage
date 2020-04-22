@@ -1,0 +1,21 @@
+.header a{
+    display: block;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+}
+
+.header img{
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+
+.header{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #fff;
+    line-height: 40px;
+}
