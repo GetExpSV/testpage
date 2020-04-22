@@ -1,6 +1,7 @@
 .users{
     background-color: #f9f9f3;
     padding-top: 150px;
+    max-width: 1024px;
 }
 
 .textItem{
@@ -9,11 +10,24 @@
 }
 
 .usersItem{
-    display: flex;
+    display: grid;
     text-align: center;
     margin-top: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+
 }
 
 .userItem{
-    width: 33%;
+    max-width: 500px;
+    white-space: pre-wrap;
+}
+
+.buttonItem{
+    background-color: #ef5b4c;
+    color: #fff;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
 }

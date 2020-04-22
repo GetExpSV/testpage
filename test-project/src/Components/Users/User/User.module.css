@@ -1,0 +1,13 @@
+.item{
+    margin-top: 30px;
+    max-width: 390px;
+}
+
+.textItem{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.textItem img{
+    border-radius: 40px;
+}
