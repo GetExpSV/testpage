@@ -1,13 +1,26 @@
 .item{
     margin-top: 30px;
-    max-width: 390px;
+    text-align: center;
+    height: 300px;
 }
 
 .textItem{
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-top: 10px;
+    font-size: 15px;
 }
 
-.textItem img{
+.item img{
     border-radius: 40px;
+    height:70px;
+    width: 70px;
+}
+
+.nameItem{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
 }

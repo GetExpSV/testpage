@@ -3,12 +3,11 @@ import user_class from '../User/User.module.css'
 
 
 let User = (props) => {
-    debugger;
     return(<div className={user_class.item}>
-            <div className={user_class.textItem}>
+            <div>
                 <img src={props.user.photo}/>
             </div>
-            <div className={user_class.textItem}>
+            <div className={user_class.nameItem}>
                 {props.user.name}
             </div>
             <div className={user_class.textItem}>

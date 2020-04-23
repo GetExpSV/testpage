@@ -1,13 +1,14 @@
 import React from 'react';
 import users_class from './Users.module.css'
 import {connect} from "react-redux";
-import {getUsersData} from "../../Data/Users-reducer";
+import {getPositionsData, getUsersData} from "../../Data/Users-reducer";
 import User from "./User/User";
 
 class Users extends React.Component{
 
     componentDidMount() {
-        this.props.getUsersData(1,6)
+        this.props.getUsersData(1,6);
+        this.props.getPositionsData();
     }
 
     loadMore = () =>{
@@ -19,7 +20,7 @@ class Users extends React.Component{
         return (<div>
             <div className={users_class.users}>
                 <div className={users_class.textItem}>Our cheerful users</div>
-                <div className={users_class.textItem}>Attention! Sorting users by registration date</div>
+                <div className={users_class.item}>Attention! Sorting users by registration date</div>
                 <div className={users_class.usersItem}>
                     {Users}
                 </div>
@@ -35,5 +36,5 @@ let mapStateToProps = (state) =>{
     }
 }
 
-export default connect(mapStateToProps, {getUsersData})(Users);
+export default connect(mapStateToProps, {getUsersData, getPositionsData})(Users);
 

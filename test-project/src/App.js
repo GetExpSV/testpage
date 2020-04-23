@@ -4,6 +4,7 @@ import Header from "./Components/Header/Header";
 import FirstInfoSection from "./Components/FirstInfoSection/FirstInfoSection";
 import SecondInfoSection from "./Components/SecondInfoSection/SecondInfoSection";
 import Users from "./Components/Users/Users";
+import Registration from "./Components/Registration/Registration";
 
 let App = (props) => {
     return (
@@ -13,6 +14,7 @@ let App = (props) => {
                 <FirstInfoSection/>
                 <SecondInfoSection/>
                 <Users/>
+                <Registration/>
             </div>
         </div>
     );
