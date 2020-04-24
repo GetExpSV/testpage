@@ -61,5 +61,32 @@
 }
 
 .fileItem{
-    margin-top: 10px;
+    visibility: hidden;
+}
+
+.file__container{
+    border: 1px solid #f9f9f3;
+    display: inline-block;
+    line-height: 30px;
+    border-radius: 3px;
+}
+
+.file__text{
+    display: inline-block;
+    padding-left: 7px;
+}
+
+.file__button{
+    display: inline-block;
+}
+.labelItem{
+    background-color: #f9f9f3;
+    display: inline-block;
+    border: 1px solid #f9f9f3;
+    width: 70px;
+    padding-left: 7px;
+}
+
+.radio__name{
+    padding-left: 40px;
 }

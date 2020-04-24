@@ -1,9 +1,16 @@
-import React from "react";
-import {fieldComponentForm} from "../../FieldComponents/fieldComponents";
+import React, {useState} from "react";
+import {fieldComponentForm, fieldRadio} from "../../FieldComponents/fieldComponents";
 import reg_class from "./Registration.module.css";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {compose} from "redux";
+import {
+    EmailValidate,
+    MaxLengthString,
+    MinLengthString,
+    PhoneValidate, PhotoValidate,
+    required
+} from "../../FieldValidation/FieldValidation";
 
 class FieldFileInput extends React.Component {
     constructor(props) {
@@ -11,22 +18,32 @@ class FieldFileInput extends React.Component {
         this.onChange = this.onChange.bind(this)
     }
 
+    state = {
+        fileName: "Upload your photo"
+    }
+
     onChange(e) {
         const {input: {onChange}} = this.props
         onChange(e.target.files[0])
+        this.setState({fileName: e.target.files[0].name})
     }
 
     render() {
-        const {input: {value}} = this.props
-        const {input, label, required, meta,} = this.props
+        const {input: {value}} = this.props;
+        const {input, label, required, meta,} = this.props;
+        let error = meta.touched && meta.error;
         return (
             <div><label>{label}</label>
-                <div>
+                <div className={reg_class.file__container}>
+                    <div className={reg_class.file__text}>{this.state.fileName}</div>
                     <input className={reg_class.fileItem}
                         type='file'
-                        accept='.jpg, .png, .jpeg'
+                        accept='.jpg, .jpeg'
                         onChange={this.onChange}
+                        id="input"
                     />
+                    <label htmlFor="input" className={reg_class.labelItem}>Browse</label>
+                    {error ? <div className={""}>{meta.error}</div> : ""}
                 </div>
             </div>
         )
@@ -35,24 +52,32 @@ class FieldFileInput extends React.Component {
 
 let fieldComponent = fieldComponentForm("input");
 
+let minLength = MinLengthString(2);
+let maxLength = MaxLengthString(60);
+
 let registrationForm = (props) => {
     let positionsRadio = props.positions.map(data=> <div className={reg_class.radioItem}>
-        <Field component={"input"} name={"position"} type={"radio"} value={data.name}/>{data.name}
+        <Field component={fieldRadio} name={"position"} type={"radio"} value={data.name}/>
+        <span className={reg_class.radio__name}>{data.name}</span>
     </div>)
+
     return (<form onSubmit={props.handleSubmit} className={reg_class.formItem}>
         <div className={reg_class.item}>Name
             <div>
-                <Field component={fieldComponent} name={"personName"} placeholder={"Your name"}/>
+                <Field component={fieldComponent} name={"personName"} placeholder={"Your name"}
+                       validate={[required, minLength, maxLength]}/>
             </div>
         </div>
         <div className={reg_class.item}>Email
             <div>
-                <Field component={fieldComponent} name={"email"} placeholder={"Your email"}/>
+                <Field component={fieldComponent} name={"email"} placeholder={"Your email"}
+                validate={[required, EmailValidate]}/>
             </div>
         </div>
         <div className={reg_class.item}>Phone number
             <div>
-                <Field component={fieldComponent} name={"phoneNumber"} placeholder={"+380 XX XXX XX XX"}/>
+                <Field component={fieldComponent} name={"phoneNumber"} placeholder={"+380 XX XXX XX XX"}
+                validate={[required, PhoneValidate]}/>
             </div>
             <div className={reg_class.detail}>Enter phone number in open format</div>
         </div>
@@ -62,10 +87,10 @@ let registrationForm = (props) => {
         </div>
         <div className={reg_class.item}>Photo
             <div>
-                <Field component={FieldFileInput} type={"file"} name={"photo"} />
+                <Field component={FieldFileInput} name={"photo"} validate={[required, PhotoValidate]}/>
             </div>
         </div>
-        <button className={reg_class.singItem}>Sing up now</button>
+        <div onClick={props.handleSubmit} className={reg_class.singItem}>Sing up now</div>
     </form>)
 }
 

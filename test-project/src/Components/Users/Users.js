@@ -7,12 +7,12 @@ import User from "./User/User";
 class Users extends React.Component{
 
     componentDidMount() {
-        this.props.getUsersData(1,6);
+        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers);
         this.props.getPositionsData();
     }
 
     loadMore = () =>{
-        this.props.getUsersData(2,6)
+        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers)
     }
 
     render() {
@@ -24,7 +24,8 @@ class Users extends React.Component{
                 <div className={users_class.usersItem}>
                     {Users}
                 </div>
-                <div className={users_class.buttonItem} onClick={this.loadMore}>Show more</div>
+                {this.props.CurrentPage > this.props.TotalPage ? "":
+                    <div className={users_class.buttonItem} onClick={this.loadMore}>Show more</div>}
             </div>
         </div>)
     }
@@ -32,7 +33,10 @@ class Users extends React.Component{
 
 let mapStateToProps = (state) =>{
     return{
-        Users: state.Users.Users
+        Users: state.Users.Users,
+        CurrentPage: state.Users.CurrentPage,
+        TotalPage: state.Users.TotalPage,
+        CountUsers: state.Users.CountUsers
     }
 }
 

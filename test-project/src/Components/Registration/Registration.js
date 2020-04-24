@@ -2,13 +2,13 @@ import React from 'react';
 import reg_class from './Registration.module.css'
 import RegistrationFormRedux from "./RegistrationForm";
 import {connect} from "react-redux";
-import {initialize} from 'redux-form';
+import {setUser} from "../../Data/Users-reducer";
 
 
 class Registration extends React.Component {
 
     onSubmit = (value) => {
-        console.log(value)
+        this.props.setUser(value, this.props.positions);
     }
 
     render() {
@@ -28,4 +28,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {initialize})(Registration);
+export default connect(mapStateToProps, {setUser})(Registration);
