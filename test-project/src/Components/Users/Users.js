@@ -1,38 +1,36 @@
 import React from 'react';
-import users_class from './Users.module.css'
+import style from './Users.module.css'
 import {connect} from "react-redux";
 import {getPositionsData, getUsersData} from "../../Data/Users-reducer";
 import User from "./User/User";
 
-class Users extends React.Component{
+class Users extends React.Component {
 
     componentDidMount() {
         this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers);
         this.props.getPositionsData();
     }
 
-    loadMore = () =>{
+    loadMore = () => {
         this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers)
     }
 
     render() {
         let Users = this.props.Users.map(data => <User user={data} key={data.id}/>)
-        return (<div>
-            <div className={users_class.users}>
-                <div className={users_class.textItem}>Our cheerful users</div>
-                <div className={users_class.item}>Attention! Sorting users by registration date</div>
-                <div className={users_class.usersItem}>
+        return (<div className={style.container}>
+            <div className={style.text__top}>Our cheerful users</div>
+            <div className={style.attention}>Attention! Sorting users by registration date</div>
+                <div className={style.users__container}>
                     {Users}
                 </div>
-                {this.props.CurrentPage > this.props.TotalPage ? "":
-                    <div className={users_class.buttonItem} onClick={this.loadMore}>Show more</div>}
-            </div>
+            {this.props.CurrentPage > this.props.TotalPage ? "" :
+                <div className={style.button__item} onClick={this.loadMore}>Show more</div>}
         </div>)
     }
 }
 
-let mapStateToProps = (state) =>{
-    return{
+let mapStateToProps = (state) => {
+    return {
         Users: state.Users.Users,
         CurrentPage: state.Users.CurrentPage,
         TotalPage: state.Users.TotalPage,

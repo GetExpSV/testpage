@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {fieldComponentForm, fieldRadio} from "../../FieldComponents/fieldComponents";
-import reg_class from "./Registration.module.css";
+import style from "./Registration.module.css";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -34,15 +34,15 @@ class FieldFileInput extends React.Component {
         let error = meta.touched && meta.error;
         return (
             <div><label>{label}</label>
-                <div className={reg_class.file__container}>
-                    <div className={reg_class.file__text}>{this.state.fileName}</div>
-                    <input className={reg_class.fileItem}
+                <div className={style.file__container}>
+                    <div className={style.file__text}>{this.state.fileName}</div>
+                    <input className={style.fileItem}
                         type='file'
                         accept='.jpg, .jpeg'
                         onChange={this.onChange}
                         id="input"
                     />
-                    <label htmlFor="input" className={reg_class.labelItem}>Browse</label>
+                    <label htmlFor="input" className={style.label__item}>Browse</label>
                     {error ? <div className={""}>{meta.error}</div> : ""}
                 </div>
             </div>
@@ -56,41 +56,41 @@ let minLength = MinLengthString(2);
 let maxLength = MaxLengthString(60);
 
 let registrationForm = (props) => {
-    let positionsRadio = props.positions.map(data=> <div className={reg_class.radioItem}>
+    let positionsRadio = props.positions.map(data=> <div className={style.radio__item}>
         <Field component={fieldRadio} name={"position"} type={"radio"} value={data.name}/>
-        <span className={reg_class.radio__name}>{data.name}</span>
+        <span className={style.radio__name}>{data.name}</span>
     </div>)
 
-    return (<form onSubmit={props.handleSubmit} className={reg_class.formItem}>
-        <div className={reg_class.item}>Name
+    return (<form onSubmit={props.handleSubmit} className={style.formItem}>
+        <div className={style.item}>Name
             <div>
                 <Field component={fieldComponent} name={"personName"} placeholder={"Your name"}
                        validate={[required, minLength, maxLength]}/>
             </div>
         </div>
-        <div className={reg_class.item}>Email
+        <div className={style.item}>Email
             <div>
                 <Field component={fieldComponent} name={"email"} placeholder={"Your email"}
                 validate={[required, EmailValidate]}/>
             </div>
         </div>
-        <div className={reg_class.item}>Phone number
+        <div className={style.item}>Phone number
             <div>
                 <Field component={fieldComponent} name={"phoneNumber"} placeholder={"+380 XX XXX XX XX"}
                 validate={[required, PhoneValidate]}/>
             </div>
-            <div className={reg_class.detail}>Enter phone number in open format</div>
+            <div className={style.detail}>Enter phone number in open format</div>
         </div>
-        <div className={reg_class.item}>
+        <div className={style.item}>
             <div>Select your position</div>
             {positionsRadio}
         </div>
-        <div className={reg_class.item}>Photo
+        <div className={style.item}>Photo
             <div>
                 <Field component={FieldFileInput} name={"photo"} validate={[required, PhotoValidate]}/>
             </div>
         </div>
-        <div onClick={props.handleSubmit} className={reg_class.singItem}>Sing up now</div>
+        <div onClick={props.handleSubmit} className={style.sing__item}>Sing up now</div>
     </form>)
 }
 

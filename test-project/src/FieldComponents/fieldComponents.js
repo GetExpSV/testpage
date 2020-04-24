@@ -1,22 +1,22 @@
 import React from 'react';
-import field_class from './fieldComponent.module.css'
+import style from './fieldComponent.module.css'
 
 export let fieldComponentForm = (TypeComponent) => ({input, meta, ...props}) => {
     let error = meta.touched && meta.error;
-    return (<div>
+    return (<div className={style.field__container}>
         <div>
-            <TypeComponent className={field_class.item} {...input} {...meta} {...props}/>
+            <TypeComponent className={error ? style.error__item :style.item} {...input} {...meta} {...props}/>
         </div>
-        {error ? <div className={""}>{meta.error}</div> : ""}
+        {error ? <div className={style.error__message}>{meta.error}</div> : ""}
     </div>)
 }
 
 export let fieldRadio = ({input, meta, ...props}) => {
     return (
         <div>
-            <label className={field_class.container}>
+            <label className={style.container}>
                 <input type="radio" checked="checked" name="radio" {...input} {...meta} {...props}/>
-                <span className={field_class.checkmark}></span>
+                <span className={style.checkmark}></span>
             </label>
         </div>)
 }

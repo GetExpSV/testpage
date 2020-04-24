@@ -1,19 +1,11 @@
-﻿html {
-  box-sizing: border-box;
-}
-
-*, *:after, *:before {
-  box-sizing: inherit;
-}
-
-.appItem{
+﻿.app__item{
   max-width: 1024px;
   margin: 0 auto;
   display: grid;
   background-color: #fff;
 }
 
-.item{
+.app__container{
   max-width: 2560px;
   background-color: #282c34;
 }

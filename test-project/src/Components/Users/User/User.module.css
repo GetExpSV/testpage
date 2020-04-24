@@ -1,26 +1,40 @@
-.item{
+.user__container{
     margin-top: 30px;
     text-align: center;
-    height: 300px;
+    width: 200px;
 }
 
-.textItem{
+.phone__item{
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 10px;
+    padding-top: 12px;
     font-size: 15px;
 }
 
-.item img{
+.user__container img{
     border-radius: 40px;
     height:70px;
     width: 70px;
 }
 
-.nameItem{
+.name__item{
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 10px;
+    padding-top: 20px;
     font-size: 20px;
     font-weight: 500;
+}
+
+.position__item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 21px;
+    font-size: 15px;
+}
+
+.email__item{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 12px;
+    font-size: 15px;
 }

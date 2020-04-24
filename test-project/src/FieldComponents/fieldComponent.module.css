@@ -3,6 +3,25 @@
     line-height: 32px;
     width: 100%;
     padding-left: 5px;
+    border-radius: 3px;
+    border: 2px #f9f9f3 solid;
+}
+
+.error__item{
+    margin-top: 12px;
+    line-height: 32px;
+    width: 100%;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: 1px red solid;
+}
+
+.error__message{
+    color: red;
+}
+
+.field__container{
+    height: 45px;
 }
 
 /* The container */
@@ -31,20 +50,22 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
     border-radius: 50%;
+    border: 1px grey solid;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    /*background-color: #ccc;*/
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
     background-color: #2196F3;
+    border: none;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -61,10 +82,10 @@
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
+    top: 4px;
+    left: 4px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: white;
 }

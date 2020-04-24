@@ -1,22 +1,22 @@
 import React from 'react';
-import user_class from '../User/User.module.css'
+import style from '../User/User.module.css'
 
 
 let User = (props) => {
-    return(<div className={user_class.item}>
+    return(<div className={style.user__container}>
             <div>
                 <img src={props.user.photo}/>
             </div>
-            <div className={user_class.nameItem}>
+            <div className={style.name__item}>
                 {props.user.name}
             </div>
-            <div className={user_class.textItem}>
+            <div className={style.position__item}>
                 {props.user.position}
             </div>
-            <div className={user_class.textItem}>
+            <div className={style.email__item}>
                 {props.user.email}
             </div>
-            <div className={user_class.textItem}>
+            <div className={style.phone__item}>
                 {props.user.phone}
             </div>
     </div>);
