@@ -20,7 +20,7 @@ let UsersReducer = (state = initialState, action) =>{
         case getUsersType:
             return{
                 ...state,
-                Users: [...state.Users, ...action.Users]
+                Users: !action.isNew ? [...state.Users, ...action.Users] : action.Users
             }
         case getPositionsType:
             return{
@@ -47,7 +47,7 @@ let UsersReducer = (state = initialState, action) =>{
     }
 }
 
-let getUsers = (Users) => {return{type: getUsersType, Users}}
+let getUsers = (Users, isNew) => {return{type: getUsersType, Users, isNew}}
 let getPositions = (Positions) =>{ return{type: getPositionsType, Positions}}
 let getCurrentPage = (CurrentPage) =>{return{type: getCurrentPageType, CurrentPage}}
 let getTotalPage = (TotalPage) =>{return{type: getTotalPageType, TotalPage}}
@@ -66,14 +66,14 @@ export const getPositionsData = () => (dispatch) =>{
         })
 }
 
-export let getUsersData = (page, count) => (dispatch) =>{
+export let getUsersData = (page, count, isNew = false) => (dispatch) =>{
     fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${count}`)
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
             if(data.success) {
-                dispatch(getUsers(data.users));
+                dispatch(getUsers(data.users, isNew));
                 dispatch(getTotalPage(data.total_pages));
                 if(page <= data.total_pages){
                     dispatch(getCurrentPage(page+1));
@@ -111,9 +111,8 @@ export const setUser = (regUser, positions) => (dispatch) =>{
                 .then(function(data) {
                     if(data.success) {
                         dispatch(getSuccess(true));
-                        dispatch(getCurrentPage(1));
+                        dispatch(getUsersData(1,6, true));
                     } else {
-                        // proccess server errors
                     }
                 })
                 .catch(function(error) {
