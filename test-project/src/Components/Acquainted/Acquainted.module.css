@@ -51,3 +51,48 @@
     text-align: justify;
     text-justify: inter-word;
 }
+
+@media (max-width: 768px){
+    .info__container img{
+        width: 250px;
+        padding-left: 30px;
+        padding-top: 80px;
+    }
+
+    .text__container{
+        padding-top: 60px;
+        padding-left: 270px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 360px){
+    .info__container img{
+        display: block;
+        width: 90%;
+        padding-left: 30px;
+        padding-top: 80px;
+        padding-bottom: 20px;
+    }
+    .text__container{
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+    .text__top{
+        font-size: 45px;
+    }
+
+    .paragraph__item{
+        font-size: 30px;
+    }
+    .acquainted__container{
+        padding-bottom: 90px;
+    }
+    .sing__item{
+        font-size: 35px;
+        margin-top: 10px;
+    }
+}

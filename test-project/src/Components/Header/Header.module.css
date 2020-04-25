@@ -35,3 +35,11 @@
     background-color: #fff;
     line-height: 60px;
 }
+
+.menu__item img{
+    float: right;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding-bottom: 25px;
+    padding-right: 15px;
+}

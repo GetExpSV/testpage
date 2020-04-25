@@ -3,6 +3,7 @@
     background-color: transparent;
     height: 600px;
     background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 .material__container{
@@ -37,4 +38,55 @@
     color: #fff;
     margin-top: 33px;
     margin-bottom: 30px;
+}
+
+@media (max-width: 768px){
+    .top__item{
+        width: 370px;
+        font-size: 40px;
+        font-stretch: condensed;
+    }
+
+    .paragraph__item{
+        width: 450px;
+    }
+
+    .assignment__container{
+        background-size: 1024px;
+    }
+}
+
+@media (max-width: 360px){
+    .assignment__container{
+        background-size: 750px 700px;
+    }
+    .top__item{
+        margin: 0 auto;
+        width: 85%;
+        text-align: center;
+        font-size: 54px;
+        font-stretch: condensed;
+        letter-spacing: 1px;
+    }
+
+    .paragraph__item{
+        width: 93%;
+        text-align: center;
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0 auto;
+    }
+
+    .signItem{
+        margin: 0 auto;
+        background-color: #ef5b4c;
+        width: 400px;
+        text-align: center;
+        border-radius: 5px;
+        line-height: 60px;
+        color: #fff;
+        margin-top: 40px;
+        margin-bottom: 0px;
+        font-size: 30px;
+    }
 }

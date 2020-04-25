@@ -38,3 +38,32 @@
     padding-top: 12px;
     font-size: 15px;
 }
+
+@media (max-width: 768px){
+    .user__container{
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 360px){
+    .user__container img{
+        height:90px;
+        width: 90px;
+    }
+
+    .name__item{
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .position__item{
+        font-size: 20px;
+    }
+
+    .email__item{
+        font-size: 20px;
+    }
+    .phone__item{
+        font-size: 20px;
+    }
+}
