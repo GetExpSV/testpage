@@ -69,10 +69,8 @@
 @media (max-width: 360px){
     .info__container img{
         display: block;
-        width: 90%;
-        padding-left: 30px;
-        padding-top: 80px;
-        padding-bottom: 20px;
+        width: 100%;
+        padding: 80px 30px 20px 30px;
     }
     .text__container{
         text-align: center;
@@ -82,17 +80,17 @@
         padding-right: 1px;
     }
     .text__top{
-        font-size: 45px;
+        font-size: 34px;
     }
 
     .paragraph__item{
-        font-size: 30px;
+        font-size: 23px;
     }
     .acquainted__container{
         padding-bottom: 90px;
     }
     .sing__item{
-        font-size: 35px;
+        font-size: 23px;
         margin-top: 10px;
     }
 }

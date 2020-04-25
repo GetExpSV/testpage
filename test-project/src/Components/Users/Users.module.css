@@ -24,8 +24,9 @@
     display: grid;
     padding-top: 50px;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 50px;
-    padding-left: 80px;
+    grid-column-gap: 40px;
+    padding-left: 10%;
+    justify-content: center;
 }
 
 
@@ -37,7 +38,7 @@
     text-align: center;
     line-height: 35px;
     border-radius: 5px;
-    margin-top: 32px;
+    margin-top: 40px;
 }
 
 @media (max-width: 768px){

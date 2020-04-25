@@ -1,5 +1,6 @@
 ﻿.app__item{
-  max-width: 1024px;
+  position: relative;
+  max-width: 1170px;
   margin: 0 auto;
   display: grid;
   background-color: #fff;

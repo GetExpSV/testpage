@@ -7,6 +7,14 @@
     border: 2px #f9f9f3 solid;
 }
 
+.detail{
+    margin-top: 5px;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    font-family: 'Open Sans', regular;
+    line-height: 10px;
+}
+
 .error__item{
     margin-top: 12px;
     line-height: 32px;

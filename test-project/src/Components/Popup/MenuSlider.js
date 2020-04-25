@@ -8,7 +8,7 @@ class MenuSlider extends React.Component {
         return (
             <div className={style.popup}>
                 <div className={style.popup__inner} onClick={this.props.onSuccess}>
-                    <div>
+                    <div className={style.image__item}>
                         <img src={logophoto}/>
                     </div>
                     <div className={style.top__item}>
@@ -19,20 +19,19 @@ class MenuSlider extends React.Component {
                         <NavLink to={"5"} activeClassName={style.active__item}>Terms and conditions</NavLink>
                     </div>
                     <div className={style.mid__item}>
-                        <NavLink to={"1"} activeClassName={style.active__item}>How it works</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Partnership</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Help</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Leave testimonial</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Contact us</NavLink>
+                        <NavLink to={"6"} activeClassName={style.active__item}>How it works</NavLink>
+                        <NavLink to={"7"} activeClassName={style.active__item}>Partnership</NavLink>
+                        <NavLink to={"8"} activeClassName={style.active__item}>Help</NavLink>
+                        <NavLink to={"9"} activeClassName={style.active__item}>Leave testimonial</NavLink>
+                        <NavLink to={"10"} activeClassName={style.active__item}>Contact us</NavLink>
                     </div>
                     <div className={style.bottom__item}>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Articles</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Our news</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Testimonials</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Licenses</NavLink>
-                        <NavLink to={"1"} activeClassName={style.active__item}>Privacy policy</NavLink>
+                        <NavLink to={"11"} activeClassName={style.active__item}>Articles</NavLink>
+                        <NavLink to={"12"} activeClassName={style.active__item}>Our news</NavLink>
+                        <NavLink to={"13"} activeClassName={style.active__item}>Testimonials</NavLink>
+                        <NavLink to={"14"} activeClassName={style.active__item}>Licenses</NavLink>
+                        <NavLink to={"15"} activeClassName={style.active__item}>Privacy policy</NavLink>
                     </div>
-                    <div onClick={this.props.onSuccess} className={style.button__item}>Great</div>
                 </div>
             </div>
         );

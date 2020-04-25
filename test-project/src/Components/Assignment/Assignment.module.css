@@ -58,35 +58,22 @@
 
 @media (max-width: 360px){
     .assignment__container{
-        background-size: 750px 700px;
+        background-size: 600px 500px;
     }
     .top__item{
         margin: 0 auto;
-        width: 85%;
         text-align: center;
-        font-size: 54px;
-        font-stretch: condensed;
-        letter-spacing: 1px;
     }
 
     .paragraph__item{
-        width: 93%;
-        text-align: center;
-        font-size: 30px;
-        line-height: 40px;
         margin: 0 auto;
+        text-align: center;
+        font-size: 25px;
+        line-height: 30px;
+        padding-bottom: 30px;
     }
 
     .signItem{
         margin: 0 auto;
-        background-color: #ef5b4c;
-        width: 400px;
-        text-align: center;
-        border-radius: 5px;
-        line-height: 60px;
-        color: #fff;
-        margin-top: 40px;
-        margin-bottom: 0px;
-        font-size: 30px;
     }
 }

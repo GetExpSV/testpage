@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {fieldComponentForm, fieldRadio} from "../../FieldComponents/fieldComponents";
+import {fieldComponentForm, fieldComponentFormPhone, fieldRadio} from "../../FieldComponents/fieldComponents";
 import style from "./Registration.module.css";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
@@ -51,6 +51,7 @@ class FieldFileInput extends React.Component {
 }
 
 let fieldComponent = fieldComponentForm("input");
+let fieldComponentPhone = fieldComponentFormPhone("input")
 
 let minLength = MinLengthString(2);
 let maxLength = MaxLengthString(60);
@@ -76,10 +77,9 @@ let registrationForm = (props) => {
         </div>
         <div className={style.item}>Phone number
             <div>
-                <Field component={fieldComponent} name={"phoneNumber"} placeholder={"+380 XX XXX XX XX"}
+                <Field component={fieldComponentPhone} name={"phoneNumber"} placeholder={"+380 XX XXX XX XX"}
                 validate={[required, PhoneValidate]}/>
             </div>
-            <div className={style.detail}>Enter phone number in open format</div>
         </div>
         <div className={style.item}>
             <div>Select your position</div>

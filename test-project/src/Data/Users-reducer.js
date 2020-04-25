@@ -111,7 +111,7 @@ export const setUser = (regUser, positions) => (dispatch) =>{
                 .then(function(data) {
                     if(data.success) {
                         dispatch(getSuccess(true));
-                        dispatch(getUsersData(1,6))
+                        dispatch(getCurrentPage(1));
                     } else {
                         // proccess server errors
                     }
