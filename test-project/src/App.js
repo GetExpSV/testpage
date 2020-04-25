@@ -6,21 +6,25 @@ import Acquainted from "./Components/Acquainted/Acquainted";
 import Users from "./Components/Users/Users";
 import Registration from "./Components/Registration/Registration";
 import {BrowserRouter} from "react-router-dom";
+import {Route} from 'react-router-dom'
 
-let App = (props) => {
-    return (
-        <BrowserRouter>
-            <div className="app__container">
-                <div className="app__item">
-                    <Header/>
-                    <Assignment/>
-                    <Acquainted/>
-                    <Users/>
-                    <Registration/>
+class App extends React.Component {
+
+    render() {
+        return (
+            <BrowserRouter>
+                <div className="app__container">
+                    <div className="app__item">
+                        <Header/>
+                        <Assignment/>
+                        <Acquainted/>
+                        <Users/>
+                        <Route path="/" render={() => <Registration/>}/>
+                    </div>
                 </div>
-            </div>
-        </BrowserRouter>
-    );
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;

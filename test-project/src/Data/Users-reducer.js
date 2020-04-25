@@ -4,13 +4,15 @@ const getUsersType = "GET-USERS";
 const getPositionsType = "GET-POSITIONS";
 const getCurrentPageType = "GET-CURRENT-PAGE";
 const getTotalPageType = "GET-TOTAL-PAGE";
+const getIsSuccessType = "GET-IS-SUCCESS";
 
 let initialState = {
     Users: [],
     Positions: [],
     CurrentPage: 1,
     TotalPage: 0,
-    CountUsers: 6
+    CountUsers: 6,
+    isSuccess: false
 }
 
 let UsersReducer = (state = initialState, action) =>{
@@ -35,6 +37,11 @@ let UsersReducer = (state = initialState, action) =>{
                 ...state,
                 TotalPage: action.TotalPage
             }
+        case getIsSuccessType:
+            return{
+                ...state,
+                isSuccess: action.success
+            }
         default:
             return state;
     }
@@ -44,6 +51,7 @@ let getUsers = (Users) => {return{type: getUsersType, Users}}
 let getPositions = (Positions) =>{ return{type: getPositionsType, Positions}}
 let getCurrentPage = (CurrentPage) =>{return{type: getCurrentPageType, CurrentPage}}
 let getTotalPage = (TotalPage) =>{return{type: getTotalPageType, TotalPage}}
+export const getSuccess = (success) =>{return{type: getIsSuccessType, success}}
 
 export const getPositionsData = () => (dispatch) =>{
     fetch('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
@@ -102,6 +110,8 @@ export const setUser = (regUser, positions) => (dispatch) =>{
                 })
                 .then(function(data) {
                     if(data.success) {
+                        dispatch(getSuccess(true));
+                        dispatch(getUsersData(1,6))
                     } else {
                         // proccess server errors
                     }
