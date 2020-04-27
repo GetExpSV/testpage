@@ -8,11 +8,11 @@ import Popup from "../Popup/Popup";
 
 class Registration extends React.Component {
     onSubmit = (value) => {
-        this.props.setUser(value, this.props.positions);
+        this.props.setUser(value, this.props.positions);    //get input value from form after submit and moved into thunk for post user into data
     }
 
     onSuccess = () =>{
-        this.props.getSuccess(false)
+        this.props.getSuccess(false)    //check load user into data or not
     }
 
     render() {
@@ -24,7 +24,7 @@ class Registration extends React.Component {
             </div>
             <RegistrationFormRedux onSubmit={this.onSubmit}/>
                 {this.props.isSuccess? <Popup closePopup={this.onSuccess} />   : ""}
-        </div>)
+        </div>)     //if registration success show popup
     }
 }
 

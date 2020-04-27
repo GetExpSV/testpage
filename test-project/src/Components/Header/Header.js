@@ -8,10 +8,10 @@ import MenuSlider from "../Popup/MenuSlider";
 
 let Header = (props) => {
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(max-device-width: 768px)'
+        query: '(max-device-width: 768px)'          //width when must use burgerMenu
     })
 
-    let [isMenu, setIsMenu] = useState(false);
+    let [isMenu, setIsMenu] = useState(false);      //hook for active/deactivate menu
 
     let onSuccess = () =>{
         setIsMenu(!isMenu);

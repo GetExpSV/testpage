@@ -7,23 +7,23 @@ import User from "./User/User";
 class Users extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers);
-        this.props.getPositionsData();
+        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers);     //get from data first 6 users
+        this.props.getPositionsData();                                              //get from data positions
     }
 
     loadMore = () => {
-        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers)
+        this.props.getUsersData(this.props.CurrentPage, this.props.CountUsers)       //get more users from data after click
     }
 
     render() {
-        let Users = this.props.Users.map(data => <User user={data} key={data.id}/>)
+        let Users = this.props.Users.map(data => <User user={data} key={data.id}/>)     //get array users from state for show into User component
         return (<div className={style.container}>
             <div className={style.text__top}>Our cheerful users</div>
             <div className={style.attention}>Attention! Sorting users by registration date</div>
                 <div className={style.users__container}>
                     {Users}
                 </div>
-            {this.props.CurrentPage > this.props.TotalPage ? "" :
+            {this.props.CurrentPage > this.props.TotalPage ? "" :             //when currentPage bigger then TotalPage users hidden button for load more users from data
                 <div className={style.button__item} onClick={this.loadMore}>Show more</div>}
         </div>)
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './fieldComponent.module.sass'
 
-export let fieldComponentForm = (TypeComponent) => ({input, meta, ...props}) => {
+export let fieldComponentForm = (TypeComponent) => ({input, meta, ...props}) => { //custom component for field
     let error = meta.touched && meta.error;
     return (<div className={style.field__container}>
         <div>
@@ -11,7 +11,7 @@ export let fieldComponentForm = (TypeComponent) => ({input, meta, ...props}) => 
     </div>)
 }
 
-export let fieldComponentFormPhone = (TypeComponent) => ({input, meta, ...props}) => {
+export let fieldComponentFormPhone = (TypeComponent) => ({input, meta, ...props}) => { //custom component for phoneField
     let error = meta.touched && meta.error;
     return (<div className={style.field__container}>
         <div>
@@ -21,7 +21,7 @@ export let fieldComponentFormPhone = (TypeComponent) => ({input, meta, ...props}
     </div>)
 }
 
-export class FieldFileInput extends React.Component {
+export class FieldFileInput extends React.Component { //custom component for fileField
     constructor(props) {
         super(props)
         this.onChange = this.onChange.bind(this)
@@ -59,7 +59,7 @@ export class FieldFileInput extends React.Component {
     }
 }
 
-export let fieldRadio = ({input, meta, ...props}) => {
+export let fieldRadio = ({input, meta, ...props}) => {      //custom component for radioField
     return (
         <div>
             <label className={style.container}>

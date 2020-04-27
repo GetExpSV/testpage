@@ -17,55 +17,17 @@ import {
     required
 } from "../../FieldValidation/FieldValidation";
 
-/*export class FieldFileInput extends React.Component {
-    constructor(props) {
-        super(props)
-        this.onChange = this.onChange.bind(this)
-    }
+let fieldComponent = fieldComponentForm("input");  //custom component for field
+let fieldComponentPhone = fieldComponentFormPhone("input"); //custom component for field
 
-    state = {
-        fileName: "Upload your photo"
-    }
-
-    onChange(e) {
-        const {input: {onChange}} = this.props
-        onChange(e.target.files[0])
-        this.setState({fileName: e.target.files[0].name})
-    }
-
-    render() {
-        const {input: {value}} = this.props;
-        const {input, label, required, meta,} = this.props;
-        let error = meta.touched && meta.error;
-        return (
-            <div><label>{label}</label>
-                <div className={style.file__container}>
-                    <div className={style.file__text}>{this.state.fileName}</div>
-                    <input className={style.fileItem}
-                        type='file'
-                        accept='.jpg, .jpeg'
-                        onChange={this.onChange}
-                        id="input"
-                    />
-                    <label htmlFor="input" className={style.label__item}>Browse</label>
-                    {error ? <div className={""}>{meta.error}</div> : ""}
-                </div>
-            </div>
-        )
-    }
-}*/
-
-let fieldComponent = fieldComponentForm("input");
-let fieldComponentPhone = fieldComponentFormPhone("input")
-
-let minLength = MinLengthString(2);
-let maxLength = MaxLengthString(60);
+let minLength = MinLengthString(2); //validate thunk
+let maxLength = MaxLengthString(60); //validate thunk
 
 let registrationForm = (props) => {
     let positionsRadio = props.positions.map(data=> <div className={style.radio__item}>
         <Field component={fieldRadio} name={"position"} type={"radio"} value={data.name}/>
         <span className={style.radio__name}>{data.name}</span>
-    </div>)
+    </div>)            //get array for show position into radio
 
     return (<form onSubmit={props.handleSubmit} className={style.formItem}>
         <div className={style.item}>Name

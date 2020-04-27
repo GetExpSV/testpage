@@ -4,7 +4,7 @@ import {useMediaQuery} from "react-responsive";
 
 let Assignment = (props) => {
     const isDesktopOrLaptop = useMediaQuery({
-        query: '(max-device-width: 360px)'
+        query: '(max-device-width: 360px)'          // width when use short paragraph text
     })
     return (
         <div className={style.assignment__container}>
