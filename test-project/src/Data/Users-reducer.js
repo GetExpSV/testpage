@@ -1,4 +1,3 @@
-import UserApi from "../Api/Users";
 
 const getUsersType = "GET-USERS";
 const getPositionsType = "GET-POSITIONS";
@@ -53,13 +52,31 @@ let getCurrentPage = (CurrentPage) =>{return{type: getCurrentPageType, CurrentPa
 let getTotalPage = (TotalPage) =>{return{type: getTotalPageType, TotalPage}}
 export const getSuccess = (success) =>{return{type: getIsSuccessType, success}}
 
+let getPositionsFromData = () =>{
+    return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
+}
+let getUsersFromData = (page, count, isNew = false) =>{
+    return fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${count}`)
+}
+let getTokenFromData = () =>{
+    return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+}
+let postUserIntoData = (token, formData) =>{
+    return fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Token': token, // get token with GET api/v1/token method
+        },
+    })
+}
+
 export const getPositionsData = () => (dispatch) =>{
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/positions')
+    getPositionsFromData()
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
-            console.log(data);
             if(data.success){
                 dispatch(getPositions(data.positions))
             }
@@ -67,7 +84,7 @@ export const getPositionsData = () => (dispatch) =>{
 }
 
 export let getUsersData = (page, count, isNew = false) => (dispatch) =>{
-    fetch(`https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=${count}`)
+    getUsersFromData(page, count)
         .then(function(response) {
             return response.json();
         })
@@ -78,7 +95,6 @@ export let getUsersData = (page, count, isNew = false) => (dispatch) =>{
                 if(page <= data.total_pages){
                     dispatch(getCurrentPage(page+1));
                 }
-            } else {
             }
     })
 }
@@ -86,25 +102,19 @@ export let getUsersData = (page, count, isNew = false) => (dispatch) =>{
 export const setUser = (regUser, positions) => (dispatch) =>{
     let formData = new FormData();
     let position = positions.find(n=> n.name === regUser.position)
-    debugger;
+
     formData.append('position_id', position.id);
     formData.append('name', regUser.personName);
     formData.append('email', regUser.email);
     formData.append('phone', regUser.phoneNumber);
     formData.append('photo', regUser.photo);
 
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/token')
+    getTokenFromData()
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
-            fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Token': data.token, // get token with GET api/v1/token method
-                },
-            })
+            postUserIntoData(data.token, formData)
                 .then(function(response) {
                     return response.json();
                 })
