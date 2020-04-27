@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './MenuSlider.module.css'
+import style from './MenuSlider.module.sass'
 import {NavLink} from "react-router-dom";
 import logophoto from "../../Image/logo.svg";
 
@@ -7,7 +7,8 @@ class MenuSlider extends React.Component {
     render() {
         return (
             <div className={style.popup}>
-                <div className={style.popup__inner} onClick={this.props.onSuccess}>
+                <div className={style.disable} onClick={this.props.onSuccess}></div>
+                <div className={style.popup__inner}>
                     <div className={style.image__item}>
                         <img src={logophoto}/>
                     </div>
