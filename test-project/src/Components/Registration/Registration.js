@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Registration.module.css'
+import style from './Registration.module.sass'
 import RegistrationFormRedux from "./RegistrationForm";
 import {connect} from "react-redux";
 import {getSuccess, setUser} from "../../Data/Users-reducer";

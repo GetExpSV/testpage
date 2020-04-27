@@ -1,6 +1,11 @@
 import React, {useState} from "react";
-import {fieldComponentForm, fieldComponentFormPhone, fieldRadio} from "../../FieldComponents/fieldComponents";
-import style from "./Registration.module.css";
+import {
+    fieldComponentForm,
+    fieldComponentFormPhone,
+    FieldFileInput,
+    fieldRadio
+} from "../../FieldComponents/fieldComponents";
+import style from "./RegistrationForm.module.sass";
 import {Field, reduxForm} from "redux-form";
 import {connect} from "react-redux";
 import {compose} from "redux";
@@ -12,7 +17,7 @@ import {
     required
 } from "../../FieldValidation/FieldValidation";
 
-class FieldFileInput extends React.Component {
+/*export class FieldFileInput extends React.Component {
     constructor(props) {
         super(props)
         this.onChange = this.onChange.bind(this)
@@ -48,7 +53,7 @@ class FieldFileInput extends React.Component {
             </div>
         )
     }
-}
+}*/
 
 let fieldComponent = fieldComponentForm("input");
 let fieldComponentPhone = fieldComponentFormPhone("input")
