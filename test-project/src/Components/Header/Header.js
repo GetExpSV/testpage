@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import logophoto from '../../Image/logo.svg'
 import menuIcon from '../../Image/menu icon.svg'
-import style from './Header.module.css'
+import style from './Header.module.sass'
 import {NavLink} from "react-router-dom";
 import { useMediaQuery } from 'react-responsive'
 import MenuSlider from "../Popup/MenuSlider";
