@@ -6,7 +6,7 @@ import Acquainted from "./Components/Acquainted/Acquainted";
 import Users from "./Components/Users/Users";
 import Registration from "./Components/Registration/Registration";
 import {BrowserRouter} from "react-router-dom";
-import {Route} from 'react-router-dom'
+import Footer from "./Components/Footer/Footer";
 
 class App extends React.Component {
 
@@ -19,7 +19,8 @@ class App extends React.Component {
                         <Assignment/>
                         <Acquainted/>
                         <Users/>
-                        <Route path="/" render={() => <Registration/>}/>
+                        <Registration/>
+                        <Footer/>
                     </div>
                 </div>
             </BrowserRouter>
