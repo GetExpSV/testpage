@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Users.module.css'
+import style from './Users.module.sass'
 import {connect} from "react-redux";
 import {getPositionsData, getUsersData} from "../../Data/Users-reducer";
 import User from "./User/User";

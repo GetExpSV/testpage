@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../User/User.module.css'
+import style from '../User/User.module.sass'
 
 
 let User = (props) => {
