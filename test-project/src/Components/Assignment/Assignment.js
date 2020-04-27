@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Assignment.module.css'
+import style from './Assignment.module.sass'
 import {useMediaQuery} from "react-responsive";
 
 let Assignment = (props) => {
