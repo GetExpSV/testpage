@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './Acquainted.module.css'
+import style from './Acquainted.module.sass'
 import manLaptop from '../../Image/man-laptop-v1.svg'
 
 let Acquainted = (props) => {
